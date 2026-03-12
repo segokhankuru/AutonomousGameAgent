@@ -18,9 +18,9 @@ link_libraries(d3d11 dxgi user32 setupapi)
 # ------------------------------------------------------------------------------
 
 # --- OpenCV ---
-# find_package(OpenCV REQUIRED)
-# include_directories(${OpenCV_INCLUDE_DIRS})
-# link_libraries(${OpenCV_LIBS})
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+link_libraries(${OpenCV_LIBS})
 
 # --- ONNX Runtime ---
 # find_package(onnxruntime REQUIRED)
@@ -41,4 +41,4 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 # Target link libraries
-target_link_libraries(${PROJECT_NAME} PRIVATE d3d11 dxgi user32 setupapi)
+target_link_libraries(${PROJECT_NAME} PRIVATE d3d11 dxgi user32 setupapi ${OpenCV_LIBS})
