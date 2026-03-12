@@ -51,8 +51,16 @@ int main() {
 
         std::cout << "\n--- Test completed successfully ---" << std::endl;
 
+        // Wait for user input before closing
+        std::cout << "\nPress Enter to exit..." << std::endl;
+        std::cin.get();
+
     } catch (const std::exception& e) {
         std::cerr << "\nFATAL ERROR: " << e.what() << std::endl;
+
+        // Wait for user input even on error so they can read it
+        std::cout << "\nPress Enter to exit..." << std::endl;
+        std::cin.get();
         return 1;
     }
 
